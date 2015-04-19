@@ -26,3 +26,26 @@ add.me<-function(x,y){
 }
 
 add.me(3,4)
+
+gap.in %>%
+  filter(country == "China") %>%
+  select(country, year, pop) %>%
+  group_by(country) %>%
+  summarize(min=min(pop))
+
+# Challenge
+# Calculate mean population per continent per year across all years prior to 1998 but not including 1990
+
+gap.in %>%
+  filter(year<"1990")%>%
+  select(pop,continent,year)%>%
+  group_by(continent,year)%>%
+  summarize(mean(pop)) -> data.out
+  
+  attach(iris)
+  
+# install.packages('tidyr', dependencies =TRUE)
+library("tidyr")
+
+# gather iris
+iris.long<-gather(iris,"Measurement","Value",1:4)
