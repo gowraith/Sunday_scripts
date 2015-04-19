@@ -4,6 +4,12 @@
 #April 19th, 2015
 
 #read in data as tab delimited
+
+install.packages("dplyr",dependencies=TRUE)
+#Load dplyr library into working environment
+library("dplyr")
+
+
 gap.in<-read.table("output/combined_gapMinder.tsv", sep = "\t", header = TRUE)
 
 for (row.number in 1:10){
